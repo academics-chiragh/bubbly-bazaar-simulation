@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubbly Bazaar</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CSS Variables & Tailwind Config -->
+    <style>
+      :root {
+        --background: #F0FDF4; /* Light green tint for SimCity vibe */
+        --foreground: #111827;
+        --card: #FFFFFF;
+        --card-foreground: #111827;
+        --primary: #FF0180;
+        --primary-foreground: #FFFFFF;
+        --secondary: #0D0D1A;
+        --secondary-foreground: #FFFFFF;
+        --muted: #F3F4F6;
+        --muted-foreground: #6B7280;
+        --accent: #FFB800;
+        --accent-foreground: #111827;
+        --destructive: #EF4444;
+        --border: #E5E7EB;
+        --ring: #FF0180;
+        --radius: 1rem;
+        --sidebar: #0D0D1A;
+        --sidebar-primary: #FF0180;
+        --sidebar-border: rgba(255,255,255,0.08);
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--background);
+        color: var(--foreground);
+        overflow: hidden;
+      }
+
+      /* SimCity Style Grid Background */
+      .bg-simcity {
+        background-image: 
+          linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position: center center;
+      }
+      
+      .font-display {
+        font-family: 'Outfit', sans-serif;
+      }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.15);
+        border-radius: 10px;
+      }
+      .dark-scroll::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.2);
+      }
+
+      /* Game-like Card Styles */
+      .game-card {
+        border: 3px solid var(--border);
+        box-shadow: 0 8px 0 rgba(0,0,0,0.05);
+        transition: transform 0.1s, box-shadow 0.1s;
+      }
+      .game-card:active:not(:disabled) {
+        transform: translateY(4px);
+        box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+      }
+    </style>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: 'var(--background)',
+              foreground: 'var(--foreground)',
+              card: 'var(--card)',
+              'card-foreground': 'var(--card-foreground)',
+              primary: { DEFAULT: 'var(--primary)', foreground: 'var(--primary-foreground)' },
+              secondary: { DEFAULT: 'var(--secondary)', foreground: 'var(--secondary-foreground)' },
+              muted: { DEFAULT: 'var(--muted)', foreground: 'var(--muted-foreground)' },
+              accent: { DEFAULT: 'var(--accent)', foreground: 'var(--accent-foreground)' },
+              destructive: 'var(--destructive)',
+              border: 'var(--border)',
+              ring: 'var(--ring)',
+              sidebar: { DEFAULT: 'var(--sidebar)', primary: 'var(--sidebar-primary)', border: 'var(--sidebar-border)' }
+            },
+            borderRadius: {
+              lg: 'var(--radius)',
+              md: 'calc(var(--radius) - 4px)',
+              sm: 'calc(var(--radius) - 8px)'
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Outfit', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Import Map -->
+      </head>
+  <body class="bg-simcity">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.js"></script></body>
+</html>
